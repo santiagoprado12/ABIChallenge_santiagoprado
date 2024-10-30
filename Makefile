@@ -2,11 +2,7 @@ test:
 	python3 -m pytest
 
 test-coverage:
-	python3 -m coverage run
-	python3 -m coverage report
-
-coverage-html:
-	python3 -m coverage html
+	coverage run -m pytest
 
 coverage-report:
 	python3 -m coverage report
