@@ -1,4 +1,5 @@
 """Module with class to train the model."""
+
 # Data processing
 import numpy as np
 import pandas as pd
