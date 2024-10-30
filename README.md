@@ -1,3 +1,3 @@
-# santiagoprado12-ABIChallenge_santiagoprado
+# Titanic e2e MLops project
 
 In progress.. ⚒️
