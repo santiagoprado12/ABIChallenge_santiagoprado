@@ -3,7 +3,7 @@
 
 ## Confusion Matrix
 
-![Confusion Matrix](./confusion_matrix_20241030_020644.png)
+![Confusion Matrix](./confusion_matrix_20241030_041341.png)
 
 |                |   Predicted Dead |   Predicted Survive |
 |:---------------|-----------------:|--------------------:|
