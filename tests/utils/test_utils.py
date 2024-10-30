@@ -1,6 +1,9 @@
 import subprocess
-from src.utils.run_make import run_makefile
+
 import pytest
+
+from src.utils.run_make import run_makefile
+
 
 def test_run_makefile_success():
     # Test a successful run of make target
