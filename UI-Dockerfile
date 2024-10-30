@@ -1,0 +1,20 @@
+FROM python:3.10-slim-buster
+
+RUN useradd -m nonroot
+USER nonroot
+
+
+COPY --chown=root:root --chmod=755 requirements.txt .
+COPY --chown=root:root src/front src/front
+
+USER root
+RUN apt update && apt --no-install-recommends install -y build-essential make
+
+RUN pip install -U pip && pip install -r requirements.txt
+
+
+USER nonroot
+
+EXPOSE 8501
+
+CMD ["streamlit", "run", "src/front/titanic_prediction_interface.py"]
