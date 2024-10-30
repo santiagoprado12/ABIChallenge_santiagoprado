@@ -1,6 +1,4 @@
-import os
-from unittest import mock
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 import pytest
 from typer.testing import CliRunner
@@ -30,9 +28,7 @@ def mock_run_makefile():
 
 @pytest.fixture
 def mock_postgresql_manager():
-    with patch(
-        "src.cli.main.PostgreSQLManager"
-    ) as mock_db_manager:
+    with patch("src.cli.main.PostgreSQLManager") as mock_db_manager:
         yield mock_db_manager
 
 

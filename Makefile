@@ -1,15 +1,5 @@
-VENV=venv
-virtual_env:
-	python3 -m pip install virtualenv
-	python3 -m virtualenv $(VENV)
-
-install: virtual_env
-	python3 -m pip install --upgrade pip
-	python3 -m pip install -r requirements.txt
-	python3 -m pip install -r api/requirements.txt
-
 test: 
-	python3 -m ptest
+	python3 -m pytest
 
 test-coverage:
 	python3 -m coverage run
@@ -31,5 +21,4 @@ create-docker-image:
 	docker push 019994626350.dkr.ecr.us-east-2.amazonaws.com/titanic-api:latest
 
 dummy:
-	@echo "Doing nothing"
-
+	echo "hola mundo"

@@ -1,11 +1,8 @@
-
 import os
 from enum import Enum
 from typing import List, Optional
 
 import typer
-from art import *
-from ruamel.yaml import YAML
 from typing_extensions import Annotated
 
 import src.ml_core.train as train_model
@@ -14,8 +11,7 @@ from src.configs import Configs
 from src.db.db_manager.postgre_sql_manager import PostgreSQLManager
 from src.utils.run_make import run_makefile
 
-yaml = YAML()
-app = typer.Typer() 
+app = typer.Typer()
 
 
 def create_enum(enum_name, values):
@@ -73,7 +69,6 @@ def validation(
             raise typer.Abort()
 
 
-
 @app.command()
 def test(
     coverage: bool = typer.Option(
@@ -90,7 +85,7 @@ def test(
     else:
         run_makefile("test")
 
-        
+
 @app.command("run-sql")
 def run_sql_file(sql_file: str = typer.Option(..., help="The path of the sql file")):
     """Run the SQL file against the PostgreSQL database.
@@ -118,6 +113,7 @@ def run_sql_file(sql_file: str = typer.Option(..., help="The path of the sql fil
         typer.echo(f"Error executing SQL: {e}")
     finally:
         db_manager.close()
+
 
 if __name__ == "__main__":
     app()
