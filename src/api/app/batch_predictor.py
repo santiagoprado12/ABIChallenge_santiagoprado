@@ -14,9 +14,6 @@ class BatchPredictor(Predictor):
             predictions.append(self.get_prediction(item))
 
         return predictions
-    
+
     def __call__(self, *args, **kwds):
         return self.batch_predictor(*args, **kwds)
-
-
-

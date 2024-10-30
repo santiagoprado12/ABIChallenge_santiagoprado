@@ -5,7 +5,8 @@ from src.api.main import app
 
 client = TestClient(app)
 
-@patch('src.db.db_manager.postgre_sql_manager.psycopg2.connect')
+
+@patch("src.db.db_manager.postgre_sql_manager.psycopg2.connect")
 def test_prediction(mock_connect):
     response = client.post(
         "/v1/prediction",
@@ -26,7 +27,8 @@ def test_prediction(mock_connect):
     assert response.status_code == 200
     assert response.json()["Survived"] in (0, 1)
 
-@patch('src.db.db_manager.postgre_sql_manager.psycopg2.connect')
+
+@patch("src.db.db_manager.postgre_sql_manager.psycopg2.connect")
 def test_batch_prediction(mock_connect):
     response = client.post(
         "/v1/batch_prediction",
@@ -49,6 +51,6 @@ def test_batch_prediction(mock_connect):
         },
     )
     assert response.status_code == 200
-    assert isinstance(response.json()["Survived"], list) 
+    assert isinstance(response.json()["Survived"], list)
     for prediction in response.json()["Survived"]:
         assert prediction in (0, 1)

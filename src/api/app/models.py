@@ -7,10 +7,12 @@ class Sex(Enum):
     male = "male"
     female = "female"
 
+
 class Embarked(Enum):
     S = "S"
     C = "C"
     Q = "Q"
+
 
 class PredictionRequest(BaseModel):
     PassengerId: float
@@ -25,12 +27,14 @@ class PredictionRequest(BaseModel):
     Cabin: str
     Embarked: Embarked
 
+
 class BatchPredictionRequest(BaseModel):
     batch_data: list[PredictionRequest]
+
 
 class PredictionResponse(BaseModel):
     Survived: int
 
+
 class BatchPredictionResponse(BaseModel):
     Survived: list[int]
-    

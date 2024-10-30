@@ -13,6 +13,7 @@ from src.db.db_manager.abstract import InterfaceDatabaseManager
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+
 class PostgreSQLManager(InterfaceDatabaseManager):
     """PostgreSQL-specific implementation of the DatabaseManager.
 
@@ -38,7 +39,7 @@ class PostgreSQLManager(InterfaceDatabaseManager):
         self.dbname = os.getenv("POSTGRES_DB")
         self.user = os.getenv("POSTGRES_USER")
         self.password = os.getenv("POSTGRES_PASSWORD")
-        self.port = os.getenv("POSTGRES_PORT", '5432')  # Default port is 5432
+        self.port = os.getenv("POSTGRES_PORT", "5432")  # Default port is 5432
 
         self.connection = None
         self.cursor = None
@@ -51,7 +52,7 @@ class PostgreSQLManager(InterfaceDatabaseManager):
                 dbname=self.dbname,
                 user=self.user,
                 password=self.password,
-                port=self.port
+                port=self.port,
             )
             self.cursor = self.connection.cursor()
             logger.info("Connected to PostgreSQL database.")
@@ -132,7 +133,6 @@ class PostgreSQLManager(InterfaceDatabaseManager):
             self.connection.close()
             logger.info("PostgreSQL connection closed.")
 
-    
     def upload_dataframe_to_postgres(self, df: pd.DataFrame, table_name: str):
         """Uploads a Pandas DataFrame to a PostgreSQL table.
 
@@ -143,7 +143,6 @@ class PostgreSQLManager(InterfaceDatabaseManager):
         # Create a connection to PostgreSQL
         try:
 
- 
             self.connect()
 
             cursor = self.connection.cursor()
