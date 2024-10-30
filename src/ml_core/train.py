@@ -66,8 +66,3 @@ def train(models_to_use: list, acc_threshold: float = 0.7) -> None:
     logger.info('Training report generated in %s', training_report)
 
 
-if __name__ == "__main__":
-    train()
-
-
-

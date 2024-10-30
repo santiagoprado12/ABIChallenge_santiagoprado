@@ -1,12 +1,16 @@
 FROM python:3.10-slim-buster
 
+USER nonroot
+
 WORKDIR /api
 
 COPY api/requirements.txt .
 
 COPY src/ ./src
 
-RUN apt-get update && apt-get install -y make
+RUN apt --no-install-recommends install -y build-essential
+
+RUN apt-get install -y make
 
 COPY api/ ./api
 

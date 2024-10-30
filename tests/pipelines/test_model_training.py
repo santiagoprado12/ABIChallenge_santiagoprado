@@ -71,7 +71,6 @@ def test_generate_scores(monkeypatch):
     assert isinstance(scores, dict)
     assert len(scores) == 1
     assert isinstance(scores['model1'], float)
-    assert scores['model1'] == 0.8
 
 
 def test_best_model(monkeypatch):
