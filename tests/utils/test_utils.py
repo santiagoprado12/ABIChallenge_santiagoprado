@@ -1,4 +1,5 @@
-from src.utils.utils import *
+import subprocess
+from src.utils.run_make import run_makefile
 import pytest
 
 def test_run_makefile_success():

@@ -1,27 +1,23 @@
 # Data processing
 import numpy as np
 import pandas as pd
-
-# sklearn Pipelines
-from sklearn.pipeline import Pipeline
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import OrdinalEncoder
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.preprocessing import OrdinalEncoder
-from sklearn.preprocessing import StandardScaler
 from sklearn.compose import ColumnTransformer
 
 # models
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
+from sklearn.impute import SimpleImputer
 from sklearn.model_selection import RandomizedSearchCV
+from sklearn.neighbors import KNeighborsClassifier
 
-# custom pipelines
-from src.ml_pipelines.feature_selection import FeatureSelection
+# sklearn Pipelines
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler
 
 # configs
 from src.configs import Configs
+
+# custom pipelines
+from src.ml_pipelines.feature_selection import FeatureSelection
 
 
 class PipelineBuilding(Configs):
@@ -41,7 +37,6 @@ class PipelineBuilding(Configs):
             y (pd.DataFrame): Dataframe with the target.
             atributes_types (dict): Dictionary with the types of the features.
         """
-
         self.X = X
         self.y = y
         self.atributes_types = atributes_types
@@ -58,13 +53,13 @@ class PipelineBuilding(Configs):
         self, titanic_data: pd.DataFrame, categorical_features: list
     ) -> list:
         """After the one hot encoding, the categorical features are transformed into multiple columns.
+
         This function returns the names of the new columns.
 
         Args:
             titanic_data (pd.DataFrame): Dataframe with the features.
             categorical_features (list): List with the categorical features.
         """
-
         categorical_features_columns = []
 
         for col in categorical_features:
@@ -77,8 +72,8 @@ class PipelineBuilding(Configs):
         """Builds the full pipeline for the models to be trained.
 
         Returns:
-            dict: Dictionary with the full pipeline for each model."""
-
+            dict: Dictionary with the full pipeline for each model.
+        """
         atributes_types = self.atributes_types
 
         processing_feature_selection_pipeline = self._build_data_processing_pipeline(
@@ -115,7 +110,6 @@ class PipelineBuilding(Configs):
         Returns:
             Pipeline: Pipeline for the data processing.
         """
-
         num_processing_pipeline = Pipeline(
             [
                 ("imputer", SimpleImputer(strategy="median")),
@@ -152,7 +146,6 @@ class PipelineBuilding(Configs):
         Returns:
             Pipeline: Pipeline for the data processing and feature selection.
         """
-
         processing_feature_selection_pipeline = Pipeline(
             [
                 ("data_processing", data_processing_pipeline),
@@ -173,7 +166,6 @@ class PipelineBuilding(Configs):
         Returns:
             dict: Dictionary with the full pipeline for each model.
         """
-
         training_pipelines = {}
 
         for model in self.models:

@@ -8,7 +8,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler
 
-from src.ml_pipelines import (
+from src.ml_pipelines.pipeline_connection import (
     PipelineBuilding,  # Replace with the appropriate import statement
 )
 
