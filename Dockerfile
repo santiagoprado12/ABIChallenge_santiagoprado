@@ -6,7 +6,9 @@ USER nonroot
 
 # Copy the requirements file and source code
 COPY --chown=root:root --chmod=755 requirements.txt .
-COPY --chown=nonroot:nonroot . .
+COPY --chown=root:root data/ data/
+COPY --chown=root:root models/ models/
+COPY --chown=root:root src/ src/
 
 # Install build-essential and make with root permissions
 USER root
@@ -19,8 +21,8 @@ RUN pip install -U pip && pip install -r requirements.txt
 USER nonroot
 
 # Copy the Makefile and model file
-COPY --chown=nonroot:nonroot Makefile .
-COPY --chown=nonroot:nonroot models/best_model.pkl ./models/best_model.pkl
+COPY --chown=root:root Makefile .
+COPY --chown=root:root models/best_model.pkl ./models/best_model.pkl
 
 # Expose the application port
 EXPOSE 8000
