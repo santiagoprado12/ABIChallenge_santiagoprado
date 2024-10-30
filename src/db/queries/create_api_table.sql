@@ -1,0 +1,15 @@
+-- CREATE TABLE IF NOT EXISTS titanic (
+--     PassengerId FLOAT,
+--     Pclass      INT,
+--     Name        TEXT,
+--     Sex         TEXT,
+--     Age         INT,
+--     SibSp       INT,
+--     Parch       INT,
+--     Ticket      TEXT,
+--     Fare        FLOAT,
+--     Cabin       TEXT,
+--     Embarked    TEXT,
+--     prediction  INT,
+--     created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- );

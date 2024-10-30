@@ -1,0 +1,12 @@
+pandas
+scikit-learn
+pytest==7.4.0
+pytest-cov==4.1.0
+typer==0.9.0
+matplotlib==3.9.2
+art==6.0
+fastapi==0.101.1
+uvicorn==0.23.2
+gunicorn==21.2.0
+httpx==0.25.0
+numpy==2.1.1
