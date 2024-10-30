@@ -1,9 +1,11 @@
-from src.utils.data_functions import *
-from unittest.mock import patch
-from sklearn.dummy import DummyClassifier
-import pandas as pd
-import numpy as np
 import os
+from unittest.mock import patch
+
+import numpy as np
+import pandas as pd
+from sklearn.dummy import DummyClassifier
+
+from src.utils.data_functions import *
 
 
 @patch("pandas.read_csv")

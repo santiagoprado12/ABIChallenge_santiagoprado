@@ -1,3 +1,4 @@
+"""Module with configs of models to use."""
 import numpy as np
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV

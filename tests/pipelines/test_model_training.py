@@ -1,13 +1,15 @@
-from sklearn.pipeline import Pipeline
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler, OneHotEncoder, OrdinalEncoder
-from src.ml_pipelines.pipeline_connection import *
-from src.ml_pipelines.model_training import *
-from sklearn.dummy import DummyClassifier
-import pytest
 import os
-from joblib import load
 from io import BytesIO
+
+import pytest
+from joblib import load
+from sklearn.dummy import DummyClassifier
+from sklearn.impute import SimpleImputer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler
+
+from src.ml_pipelines.model_training import *
+from src.ml_pipelines.pipeline_connection import *
 
 
 def mock_init(self):

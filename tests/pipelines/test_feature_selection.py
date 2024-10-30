@@ -1,8 +1,10 @@
-import pandas as pd
-import numpy as np
-from src.ml_pipelines.feature_selection import FeatureSelection
-from sklearn.model_selection import train_test_split
 from unittest.mock import patch
+
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+from src.ml_pipelines.feature_selection import FeatureSelection
 
 # Create a mock DataFrame
 data = {

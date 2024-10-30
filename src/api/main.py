@@ -1,3 +1,5 @@
+"""Module with endpoints of the API."""
+
 from fastapi import FastAPI
 
 from src.api.app.batch_predictor import BatchPredictor

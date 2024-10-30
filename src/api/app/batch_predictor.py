@@ -1,3 +1,5 @@
+"""Module with a class to predict in batches."""
+
 from src.api.app.models import BatchPredictionRequest
 from src.api.app.predictor import Predictor
 

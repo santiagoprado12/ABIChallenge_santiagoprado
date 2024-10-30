@@ -1,9 +1,13 @@
+"""Module with data models."""
+
 from enum import Enum
 
 from pydantic import BaseModel
 
 
 class Sex(Enum):
+    """Data model for sex type."""
+
     male = "male"
     female = "female"
 

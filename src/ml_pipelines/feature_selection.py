@@ -1,18 +1,18 @@
 # Data processing
-import pandas as pd
 import numpy as np
-
-# sklearn Pipelines
-from sklearn.pipeline import Pipeline
+import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 
 # models and evaluation
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.inspection import permutation_importance
 from sklearn.metrics import accuracy_score
 
 # Data Processing
 from sklearn.model_selection import train_test_split
-from sklearn.inspection import permutation_importance
+
+# sklearn Pipelines
+from sklearn.pipeline import Pipeline
 
 
 class FeatureSelection(BaseEstimator, TransformerMixin):
@@ -30,7 +30,6 @@ class FeatureSelection(BaseEstimator, TransformerMixin):
             columns (list): List of column names.
             verbose (bool, optional): Whether to print the results of the feature selection. Defaults to False.
         """
-
         super().__init__()
         self.columns = columns
         self.verbose = verbose
@@ -46,7 +45,6 @@ class FeatureSelection(BaseEstimator, TransformerMixin):
         Returns:
             BaseEstimator: The fitted FeatureSelection class.
         """
-
         X_df = self._to_dataframe(X)
         model, X_test, y_test, X_train, y_train = self._train_feature_selection_model(
             X_df, y
@@ -68,7 +66,6 @@ class FeatureSelection(BaseEstimator, TransformerMixin):
         Returns:
             pd.DataFrame: The transformed data.
         """
-
         X_df = self._to_dataframe(X)
         X_df = X_df[self.selected_features]
         return X_df
@@ -82,7 +79,6 @@ class FeatureSelection(BaseEstimator, TransformerMixin):
         Returns:
             pd.DataFrame: The data as a pandas DataFrame.
         """
-
         X_processed = pd.DataFrame(X, columns=self.columns)
         return X_processed
 
@@ -96,7 +92,6 @@ class FeatureSelection(BaseEstimator, TransformerMixin):
         Returns:
             tuple: A tuple containing the model, the test set, the training set, and the labels.
         """
-
         X_train, X_test, y_train, y_test = train_test_split(
             X, y, test_size=0.33, random_state=self.RANDOM_SEED
         )
@@ -134,7 +129,6 @@ class FeatureSelection(BaseEstimator, TransformerMixin):
         Returns:
             np.array: An array of the permutation importance scores.
         """
-
         perm_importance = permutation_importance(
             model, X_test, y_test, n_repeats=10, random_state=self.RANDOM_SEED
         )
@@ -158,7 +152,6 @@ class FeatureSelection(BaseEstimator, TransformerMixin):
         Returns:
             list: A list of the selected features.
         """
-
         # Get feature importance scores and indices
         feature_scores = perm_importance
         feature_indices = [i for i in range(len(X_test.columns))]
@@ -195,7 +188,6 @@ class FeatureSelection(BaseEstimator, TransformerMixin):
             y_train (np.array): Array of training labels.
             y_test (np.array): Array of test labels.
         """
-
         # Train a new model using only the selected features
         selected_X_train = X_train[selected_features]
         selected_X_test = X_test[selected_features]
