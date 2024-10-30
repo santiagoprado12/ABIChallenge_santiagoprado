@@ -49,7 +49,7 @@ nosetests.xml
 cover/
 
 .coverage
-
+coverage.xml
 # Translations
 *.mo
 *.pot
