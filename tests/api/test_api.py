@@ -1,11 +1,12 @@
+from unittest.mock import patch
 from fastapi.testclient import TestClient
 
 from src.api.main import app
 
 client = TestClient(app)
 
-
-def test_prediction():
+@patch('src.db.db_manager.postgre_sql_manager.psycopg2.connect')
+def test_prediction(mock_connect):
     response = client.post(
         "/v1/prediction",
         json={
@@ -25,8 +26,8 @@ def test_prediction():
     assert response.status_code == 200
     assert response.json()["Survived"] in (0, 1)
 
-
-def test_batch_prediction():
+@patch('src.db.db_manager.postgre_sql_manager.psycopg2.connect')
+def test_batch_prediction(mock_connect):
     response = client.post(
         "/v1/batch_prediction",
         json={
