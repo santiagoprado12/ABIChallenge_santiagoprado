@@ -1,5 +1,5 @@
 {
-    "name": "crypto-bruh proyect",
+    "name": "titanic-api",
     "build": {
       "dockerfile": "dockerfile"
     },

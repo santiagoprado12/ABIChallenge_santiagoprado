@@ -5,7 +5,7 @@ RUN useradd -m nonroot
 USER nonroot
 
 # Copy the requirements file and source code
-COPY --chown=nonroot:nonroot requirements.txt .
+COPY --chown=nonroot:nonroot  --chmod=755 requirements.txt .
 COPY --chown=nonroot:nonroot . .
 
 # Install build-essential and make with root permissions
