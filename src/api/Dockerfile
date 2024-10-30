@@ -10,7 +10,7 @@ COPY src/ ./src
 
 RUN apt --no-install-recommends install -y build-essential
 
-RUN apt-get install -y make
+RUN apt --no-install-recommends install -y make
 
 COPY api/ ./api
 
