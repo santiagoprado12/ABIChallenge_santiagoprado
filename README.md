@@ -1,4 +1,4 @@
-# Titanic e2e MLops project
+# Titanic end to end MLops project
 
 ## Introduction
 
