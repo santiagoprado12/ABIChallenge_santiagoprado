@@ -128,6 +128,7 @@ The project includes a command-line interface (CLI) built with Typer, allowing e
 ```bash
 # Train specified models with a minimum accuracy threshold
 python -m src.cli.main train --model=knn --model=random_forest --model=gradient_boosting -th=0.7
+#(To add more models visit src/configs.py file)
 ```
 ```bash
 # Validate the model with a minimum accuracy threshold of 0.75
