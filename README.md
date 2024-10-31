@@ -223,3 +223,15 @@ However, both the UI and API are deployed online, and you can access them here:
 
 API - https://9k6yjdcqae.us-east-1.awsapprunner.com/ <br />
 UI - http://load-balancer-ui-2016319480.us-east-1.elb.amazonaws.com/ (only reachable using pc)
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+Hope you guys like it!<br/>
+Made with ❤️ by Santiago Prado.
