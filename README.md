@@ -199,8 +199,6 @@ UI - http://load-balancer-ui-2016319480.us-east-1.elb.amazonaws.com/ (only reach
 
 ### ML Model Deployment Locally
 
-Deploy the machine learning model as an API, following these specifications:
-
 - **API Development**: The API was developed using the FastAPI framework. You can find the code [here](src/api/). To deploy the API, use the provided [Dockerfile](API-Dockerfile). The api has 2 endpoints:
   - **/v1/prediction:** For single passenger survival predictions.
   - **/v1/batch_prediction:** For batch survival predictions.
