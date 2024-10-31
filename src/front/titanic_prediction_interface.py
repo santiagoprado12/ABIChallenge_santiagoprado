@@ -5,7 +5,6 @@ import pandas as pd
 import requests
 
 
-# PredictionAPI class to handle communication with the API
 class PredictionAPI:
     """This class handles the communication between the app and the prediction API.
 
