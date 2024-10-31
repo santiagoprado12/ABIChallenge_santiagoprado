@@ -1,4 +1,5 @@
-# Data processing
+"""Module with methods to train models."""
+
 import logging
 
 import numpy as np

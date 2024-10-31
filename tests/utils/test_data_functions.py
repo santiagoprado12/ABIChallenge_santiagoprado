@@ -1,3 +1,5 @@
+"""Module with tests for batch predictor."""
+
 import os
 from unittest.mock import patch
 
@@ -10,7 +12,14 @@ from src.utils.data_functions import *
 
 @patch("pandas.read_csv")
 def test_load_data(mock_read_csv, monkeypatch):
+    """Test the load_data function to verify correctly read and process CSV file.
 
+    Args:
+        mock_read_csv: Mock object for pd.read_csv.
+        monkeypatch: pytest fixture to mock attributes in the src.utils.data_functions
+            module.
+    """
+    # Mock the preprocess_data function within data_functions
     monkeypatch.setattr(
         "src.utils.data_functions.preprocess_data", lambda X, tgt: (X, 1)
     )
@@ -34,7 +43,10 @@ def test_load_data(mock_read_csv, monkeypatch):
 
 
 def test_preprocess_data():
+    """Test the preprocess_data function.
 
+    Asserts that the resulting DataFrame matches the expected output structure and values.
+    """
     # Define the mocked input DataFrame
     input_data = pd.DataFrame(
         {
@@ -69,14 +81,22 @@ def test_preprocess_data():
 
 
 def test_generate_validation_report(tmpdir):
+    """Test the generate_validation_report function.
 
+    Args:
+        tmpdir: pytest fixture to provide a temporary directory for report generation.
+
+    Asserts that the report file is created at the specified path.
+    """
     report = f"{tmpdir}/validation_report.md"
 
+    # Set up a dummy classifier and data
     model = DummyClassifier().fit([1, 0, 1], [1, 1, 0])
-
     X_train = pd.DataFrame({"column1": [1, 0, 1]})
     X_test = pd.DataFrame({"column1": [1, 1, 0]})
 
+    # Generate the validation report
     generate_validation_report(model, X_train, X_test, report)
 
+    # Assert that the report file exists
     assert os.path.exists(report)

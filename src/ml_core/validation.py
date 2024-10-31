@@ -1,3 +1,5 @@
+"""module with method to validate the model."""
+
 import logging
 
 from src.utils.data_functions import *

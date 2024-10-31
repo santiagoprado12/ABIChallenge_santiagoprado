@@ -1,8 +1,8 @@
 """module with classes for titanic user interface."""
 
-import streamlit as st
 import pandas as pd
 import requests
+import streamlit as st
 
 
 class PredictionAPI:

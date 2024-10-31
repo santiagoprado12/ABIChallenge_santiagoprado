@@ -1,3 +1,5 @@
+"""Module with methods to process data."""
+
 from io import BytesIO
 
 import matplotlib.pyplot as plt

@@ -1,3 +1,5 @@
+"""Module with API tests."""
+
 from unittest.mock import patch
 
 from fastapi.testclient import TestClient
@@ -9,6 +11,14 @@ client = TestClient(app)
 
 @patch("src.db.db_manager.postgre_sql_manager.psycopg2.connect")
 def test_prediction(mock_connect):
+    """Test the prediction endpoint for a single passenger.
+
+    Mocks the database connection and verifies that the endpoint returns
+    a survival prediction of 0 or 1.
+
+    Args:
+        mock_connect: Mocked database connection.
+    """
     response = client.post(
         "/v1/prediction",
         json={
@@ -31,6 +41,14 @@ def test_prediction(mock_connect):
 
 @patch("src.db.db_manager.postgre_sql_manager.psycopg2.connect")
 def test_batch_prediction(mock_connect):
+    """Test the batch prediction endpoint for multiple passengers.
+
+    Mocks the database connection and verifies that the endpoint returns
+    a list of survival predictions, each being 0 or 1.
+
+    Args:
+        mock_connect: Mocked database connection.
+    """
     response = client.post(
         "/v1/batch_prediction",
         json={

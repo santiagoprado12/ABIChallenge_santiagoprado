@@ -1,3 +1,5 @@
+"""Module with ml pipelines."""
+
 # Data processing
 import numpy as np
 import pandas as pd

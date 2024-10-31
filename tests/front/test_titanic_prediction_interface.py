@@ -1,3 +1,5 @@
+"""Module with UI using streamlit."""
+
 from unittest.mock import patch
 
 import pytest

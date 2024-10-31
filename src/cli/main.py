@@ -13,7 +13,6 @@ from src.configs import Configs
 from src.db.db_manager.postgre_sql_manager import PostgreSQLManager
 from src.utils.run_make import run_makefile
 
-# Initialize Typer for CLI commands
 app = typer.Typer()
 
 

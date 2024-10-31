@@ -1,3 +1,5 @@
+"""Module for feature selection."""
+
 # Data processing
 import numpy as np
 import pandas as pd

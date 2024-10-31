@@ -1,3 +1,5 @@
+"""Module with test for model training."""
+
 import os
 from io import BytesIO
 
@@ -13,12 +15,16 @@ from src.ml_pipelines.pipeline_connection import *
 
 
 def mock_init(self):
-    # Mock the __init__() method to do nothing
+    """Mock the __init__ method of ModelTraining for testing purposes."""
     pass
 
 
 def test_train_models(monkeypatch):
+    """Test that train_models trains each model correctly and returns a dictionary of models.
 
+    Args:
+        monkeypatch: pytest fixture to replace the __init__ method of ModelTraining with a mock.
+    """
     monkeypatch.setattr(ModelTraining, "__init__", mock_init)
 
     model_train = ModelTraining()
@@ -47,7 +53,11 @@ def test_train_models(monkeypatch):
 
 
 def test_generate_scores(monkeypatch):
+    """Test that generate_scores computes scores for each model and returns a dictionary.
 
+    Args:
+        monkeypatch: pytest fixture to replace the __init__ method of ModelTraining with a mock.
+    """
     monkeypatch.setattr(ModelTraining, "__init__", mock_init)
 
     model_train = ModelTraining()
@@ -73,7 +83,11 @@ def test_generate_scores(monkeypatch):
 
 
 def test_best_model(monkeypatch):
+    """Test that best_model identifies the model with the highest score.
 
+    Args:
+        monkeypatch: pytest fixture to replace the __init__ method of ModelTraining with a mock.
+    """
     monkeypatch.setattr(ModelTraining, "__init__", mock_init)
     monkeypatch.setattr(
         ModelTraining,
@@ -89,7 +103,11 @@ def test_best_model(monkeypatch):
 
 
 def test_save_model(monkeypatch):
+    """Test that save_model saves a trained model to a file and can be loaded correctly.
 
+    Args:
+        monkeypatch: pytest fixture to replace the __init__ method of ModelTraining with a mock.
+    """
     monkeypatch.setattr(ModelTraining, "__init__", mock_init)
     model = DummyClassifier().fit([1, 2, 3], [1, 2, 3])
 
