@@ -199,12 +199,27 @@ UI - http://load-balancer-ui-2016319480.us-east-1.elb.amazonaws.com/ (only reach
 
 ### ML Model Deployment Locally
 
-Deploy the machine learning model as an API, meeting the following specifications:
-- **API Development**: 
-- **UI Development**: 
-- **Estimations Storage**: 
-- **Testing**:
+Deploy the machine learning model as an API, following these specifications:
+
+- **API Development**: The API was developed using the FastAPI framework. You can find the code [here](src/api/). To deploy the API, use the provided [Dockerfile](API-Dockerfile). The api has 2 endpoints:
+  - **/v1/prediction:** For single passenger survival predictions.
+  - **/v1/batch_prediction:** For batch survival predictions.
+  
+- **UI Development**: The UI was developed with the Streamlit framework. The code is available [here](src/front), and deployment is handled by a [Dockerfile](UI-Dockerfile). The UI supports two types of predictions:
+  - **Unique**: Perform a single prediction using the graphical interface and text fields.
+  - **Batch**: Perform batch predictions using a CSV file. Try it out with this [example file](data/api-test.csv).
+  
+- **Estimations Storage**: Predictions and incoming data are stored in a PostgreSQL database. The database is deployed on RDS. You’ll need credentials saved in a `.env` file to access it.
+
+- **Testing**: The codebase includes various tests to ensure the correct behavior of each module.
+
+To run the full solution locally, execute:
+
 ```bash
-#remember to have setted the .env file
+# Ensure your .env file is set up
 docker-compose up
 ```
+However, both the UI and API are deployed online, and you can access them here:
+
+API - https://9k6yjdcqae.us-east-1.awsapprunner.com/ <br />
+UI - http://load-balancer-ui-2016319480.us-east-1.elb.amazonaws.com/ (only reachable using pc)
