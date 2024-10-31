@@ -1,11 +1,11 @@
-# Titanic end to end MLops project
+# Titanic end to end MLops project 🚢
 
-## Introduction
+## Introduction 
 
 This project provides a machine learning-powered API designed to predict passenger survival probabilities on the Titanic dataset. Built using FastAPI, it includes both individual and batch prediction endpoints that leverage a pre-trained model for inference. The API is integrated with a PostgreSQL database for logging predictions, while a streamlined machine learning pipeline manages model training, validation, and feature selection. Additionally, a user-friendly interface built with Streamlit enables easy access for manual and batch predictions.
 
 
-## Key Features
+## Key Features 🗝️
 
 - **FastAPI-Powered Endpoints:** Provides two main endpoints:
 
@@ -22,7 +22,7 @@ This project provides a machine learning-powered API designed to predict passeng
 
 - **Modular CLI Commands:** Command-line commands to manage training, validation, and testing with code coverage, enabling seamless model lifecycle management.
 
-## Package Structure
+## Package Structure 🌳
 
 <pre>
 src/
@@ -64,7 +64,7 @@ src/
 </pre>
 
 
-## Package Overview
+## Package Overview 👀
 
 ### `api/`
 - **`main.py`**: Contains FastAPI setup and endpoints for single and batch predictions.
@@ -102,7 +102,7 @@ src/
 - **`run_make.py`**: Helper to automate make commands, used for triggering training and testing processes.
 
 
-## CLI Overview
+## CLI Overview 💻
 
 The project includes a command-line interface (CLI) built with Typer, allowing efficient management of model training, validation, testing, and SQL command execution. The CLI commands are defined in `src/cli/main.py` and provide the following options:
 
@@ -144,7 +144,7 @@ python -m src.cli.main test --coverage
 python -m src.cli.main run-sql --sql-file "src/db/queries/select_all_api_table.sql"
 ```
 
-## Devcontainer Setup
+## Devcontainer Setup 🚀
 
 The project includes a `.devcontainer` setup for development in Visual Studio Code (VSCode). The container is pre-configured with all the necessary extensions and environment variables to simplify development.
 
@@ -166,7 +166,7 @@ POSTGRES_PORT=
 ```
 
 
-## Challenge development
+## Challenge development 💪
 
 
 This section outlines the steps required to complete the challenge, including setting up the architecture, collaboration workflow, automation processes, and deploying the ML model as an API.
