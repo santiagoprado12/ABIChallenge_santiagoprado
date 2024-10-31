@@ -203,7 +203,7 @@ UI - http://load-balancer-ui-2016319480.us-east-1.elb.amazonaws.com/ (only reach
   - **/v1/prediction:** For single passenger survival predictions.
   - **/v1/batch_prediction:** For batch survival predictions.
   
-- **UI Development**: The UI was developed with the Streamlit framework. The code is available [here](src/front), and deployment is handled by a [Dockerfile](UI-Dockerfile). The UI supports two types of predictions:
+- **UI Development**: The UI was developed with the Streamlit framework. The code is available [here](src/front/titanic_prediction_interface.py), and deployment is handled by a [Dockerfile](UI-Dockerfile). The UI supports two types of predictions:
   - **Unique**: Perform a single prediction using the graphical interface and text fields.
   - **Batch**: Perform batch predictions using a CSV file. Try it out with this [example file](data/api-test.csv).
   
