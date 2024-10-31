@@ -169,7 +169,7 @@ POSTGRES_PORT=
 ## Challenge development 💪
 
 
-This section outlines the steps required to complete the challenge, including setting up the architecture, collaboration workflow, automation processes, and deploying the ML model as an API.
+This section outlines the solution of the challenge, including the architecture, collaboration workflow, automation processes, and deploying the ML model as an API.
 
 ### Architecture
   
